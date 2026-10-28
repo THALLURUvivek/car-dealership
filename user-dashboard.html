@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Apex Auto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { background: var(--darker-bg); }
+        .dashboard-sidebar { background: var(--card-bg); border-right: 1px solid var(--border-color); min-height: 100vh; position: fixed; width: 280px; padding-top: 100px; }
+        .dashboard-main { margin-left: 280px; padding: 120px 2rem 2rem; }
+        .sidebar-link { display: flex; align-items: center; gap: 0.8rem; padding: 1rem 2rem; color: var(--gray-text); text-decoration: none; transition: all 0.3s ease; cursor: pointer; }
+        .sidebar-link:hover, .sidebar-link.active { color: var(--primary-color); background: rgba(212,175,55,0.1); }
+        .dashboard-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 2rem; margin-bottom: 1.5rem; }
+        .car-mini { display: flex; gap: 1rem; padding: 1rem; background: var(--dark-bg); border: 1px solid var(--border-color); margin-bottom: 0.8rem; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        @media (max-width: 992px) {
+            .dashboard-sidebar { position: static; width: 100%; min-height: auto; padding-top: 0; }
+            .dashboard-main { margin-left: 0; padding: 100px 1rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-nav scrolled">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand nav-logo" href="home.html"><img src="images/image.png" alt="Apex Auto" style="height: 40px;"></a>
+            <div class="ms-auto d-flex align-items-center gap-3">
+                <span style="color: var(--light-text);"><i class="fas fa-user me-2"></i>My Account</span>
+                <a href="home.html" class="btn btn-outline-light btn-sm">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-sidebar d-none d-lg-block">
+        <div class="sidebar-link active" onclick="showUserTab('overview', event)"><i class="fas fa-home"></i> Overview</div>
+        <div class="sidebar-link" onclick="showUserTab('wishlist', event)"><i class="fas fa-heart"></i> My Wishlist</div>
+        <div class="sidebar-link" onclick="showUserTab('inquiries', event)"><i class="fas fa-envelope"></i> My Inquiries</div>
+        <div class="sidebar-link" onclick="showUserTab('appointments', event)"><i class="fas fa-calendar-check"></i> My Appointments</div>
+        <div class="sidebar-link" onclick="showUserTab('profile', event)"><i class="fas fa-user-cog"></i> Profile Settings</div>
+        <a href="inventory.html" class="sidebar-link"><i class="fas fa-search"></i> Browse Inventory</a>
+        <a href="admin-dashboard.html" class="sidebar-link"><i class="fas fa-exchange-alt"></i> Switch to Admin View</a>
+    </div>
+
+    <div class="dashboard-main">
+        <div class="container-fluid">
+            <div id="overview" class="tab-content active">
+                <div class="mb-4">
+                    <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 0.5rem;">My Dashboard</h1>
+                    <p style="color: var(--gray-text);">Manage your automotive journey</p>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-lg-4 col-md-6 mb-3">
+                        <div class="dashboard-card text-center">
+                            <i class="fas fa-heart" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                            <h3 style="color: var(--primary-color);">2</h3>
+                            <p style="color: var(--gray-text); margin-bottom: 0;">Saved Vehicles</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-3">
+                        <div class="dashboard-card text-center">
+                            <i class="fas fa-envelope" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                            <h3 style="color: var(--primary-color);">1</h3>
+                            <p style="color: var(--gray-text); margin-bottom: 0;">Active Inquiries</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-3">
+                        <div class="dashboard-card text-center">
+                            <i class="fas fa-calendar-check" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                            <h3 style="color: var(--primary-color);">1</h3>
+                            <p style="color: var(--gray-text); margin-bottom: 0;">Upcoming Appointments</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="dashboard-card">
+                            <h4 style="margin-bottom: 1.5rem;"><i class="fas fa-heart me-2" style="color: var(--primary-color);"></i>Recent Wishlist</h4>
+                            <div class="car-mini">
+                                <img src="https://images.unsplash.com/photo-1616455579100-2ceaa4eb2d37?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" style="width: 100px; height: 70px; object-fit: cover;" alt="Ferrari">
+                                <div style="flex: 1;"><h5 style="margin-bottom: 0.3rem;">Ferrari F8 Tributo</h5><p style="color: var(--primary-color); margin-bottom: 0; font-weight: 600;">$280,000</p></div>
+                            </div>
+                            <div class="car-mini">
+                                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" style="width: 100px; height: 70px; object-fit: cover;" alt="Porsche">
+                                <div style="flex: 1;"><h5 style="margin-bottom: 0.3rem;">Porsche 911 Turbo S</h5><p style="color: var(--primary-color); margin-bottom: 0; font-weight: 600;">$203,500</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="dashboard-card">
+                            <h4 style="margin-bottom: 1.5rem;"><i class="fas fa-calendar-check me-2" style="color: var(--primary-color);"></i>Upcoming</h4>
+                            <div style="padding: 1rem; background: var(--dark-bg); border: 1px solid var(--border-color);">
+                                <div style="color: var(--primary-color); font-weight: 600;">Oct 29, 2026 - 10:30 AM</div>
+                                <div>Test Drive - Ferrari F8 Tributo</div>
+                                <small style="color: #28a745;">Confirmed</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="wishlist" class="tab-content">
+                <div class="mb-4">
+                    <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 0.5rem;">My Wishlist</h1>
+                    <p style="color: var(--gray-text);">Vehicles you've saved for later</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mb-3">
+                        <div class="dashboard-card">
+                            <img src="https://images.unsplash.com/photo-1616455579100-2ceaa4eb2d37?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width: 100%; height: 200px; object-fit: cover; margin-bottom: 1rem;" alt="Ferrari">
+                            <h4 style="margin-bottom: 0.5rem;">Ferrari F8 Tributo</h4>
+                            <p style="color: var(--primary-color); font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem;">$280,000</p>
+                            <div class="d-flex gap-2">
+                                <a href="contact.html" class="btn btn-primary">Inquire Now</a>
+                                <button class="btn btn-outline-light">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                        <div class="dashboard-card">
+                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width: 100%; height: 200px; object-fit: cover; margin-bottom: 1rem;" alt="Porsche">
+                            <h4 style="margin-bottom: 0.5rem;">Porsche 911 Turbo S</h4>
+                            <p style="color: var(--primary-color); font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem;">$203,500</p>
+                            <div class="d-flex gap-2">
+                                <a href="contact.html" class="btn btn-primary">Inquire Now</a>
+                                <button class="btn btn-outline-light">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="inquiries" class="tab-content">
+                <div class="mb-4">
+                    <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 0.5rem;">My Inquiries</h1>
+                    <p style="color: var(--gray-text);">Track your vehicle inquiries</p>
+                </div>
+                <div class="dashboard-card">
+                    <div style="padding: 1.5rem; background: var(--dark-bg); border: 1px solid var(--border-color); margin-bottom: 1rem;">
+                        <div class="d-flex justify-content-between mb-2">
+                            <h5 style="margin-bottom: 0;">Ferrari F8 Tributo</h5>
+                            <span style="color: var(--primary-color);">Oct 28, 2026</span>
+                        </div>
+                        <p style="color: var(--gray-text); margin-bottom: 0.5rem;">Inquiry sent regarding financing options</p>
+                        <span style="background: rgba(212,175,55,0.2); color: var(--primary-color); padding: 0.3rem 0.7rem; font-size: 0.85rem;">Response Pending</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="appointments" class="tab-content">
+                <div class="mb-4">
+                    <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 0.5rem;">My Appointments</h1>
+                    <p style="color: var(--gray-text);">Your scheduled visits</p>
+                </div>
+                <div class="dashboard-card">
+                    <div style="padding: 1.5rem; background: var(--dark-bg); border: 1px solid var(--border-color);">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h5 style="margin-bottom: 0.3rem;">Test Drive - Ferrari F8 Tributo</h5>
+                                <p style="color: var(--gray-text); margin-bottom: 0;">Oct 29, 2026 at 10:30 AM</p>
+                            </div>
+                            <span style="background: rgba(40,167,69,0.2); color: #28a745; padding: 0.3rem 0.7rem; font-size: 0.85rem;">Confirmed</span>
+                        </div>
+                        <p style="margin-bottom: 0;">Showroom: 123 Luxury Drive, Beverly Hills, CA</p>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary mt-3">Schedule New Appointment</a>
+                </div>
+            </div>
+
+            <div id="profile" class="tab-content">
+                <div class="mb-4">
+                    <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 0.5rem;">Profile Settings</h1>
+                    <p style="color: var(--gray-text);">Update your personal information</p>
+                </div>
+                <div class="dashboard-card">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label style="color: var(--light-text); margin-bottom: 0.5rem;">First Name</label>
+                            <input type="text" class="form-control" value="John" style="background: var(--dark-bg); border: 1px solid var(--border-color); color: var(--light-text);">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label style="color: var(--light-text); margin-bottom: 0.5rem;">Last Name</label>
+                            <input type="text" class="form-control" value="Doe" style="background: var(--dark-bg); border: 1px solid var(--border-color); color: var(--light-text);">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label style="color: var(--light-text); margin-bottom: 0.5rem;">Email Address</label>
+                        <input type="email" class="form-control" value="john.doe@email.com" style="background: var(--dark-bg); border: 1px solid var(--border-color); color: var(--light-text);">
+                    </div>
+                    <div class="mb-3">
+                        <label style="color: var(--light-text); margin-bottom: 0.5rem;">Phone Number</label>
+                        <input type="tel" class="form-control" value="+1 (555) 123-4567" style="background: var(--dark-bg); border: 1px solid var(--border-color); color: var(--light-text);">
+                    </div>
+                    <button class="btn btn-primary">Update Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showUserTab(tabName, evt) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.sidebar-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

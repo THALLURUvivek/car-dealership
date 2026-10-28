@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Apex Auto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">APEX AUTO</div>
+            <div class="preloader-bar"></div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-nav scrolled">
+        <div class="container">
+            <a class="navbar-brand nav-logo" href="home.html"><img src="images/image.png" alt="Apex Auto" style="height: 40px;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="inventory.html">Inventory</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <a href="signin.html" class="btn btn-primary ms-lg-3 nav-cta">Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="auth-section" style="padding: 140px 0 80px; background: radial-gradient(circle at top, rgba(212, 175, 55, 0.1) 0%, transparent 50%), linear-gradient(135deg, var(--secondary-color), var(--darker-bg)); min-height: 100vh;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8">
+                    <div class="auth-card" style="background: linear-gradient(145deg, var(--card-bg), rgba(30, 30, 30, 0.9)); border: 1px solid var(--border-color); padding: 3rem 2.5rem; box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 0 1px rgba(212, 175, 55, 0.1) inset; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--primary-color), transparent);"></div>
+                        <div class="text-center mb-4">
+                            <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);">
+                                <i class="fas fa-user-plus" style="font-size: 1.8rem; color: var(--secondary-color);"></i>
+                            </div>
+                            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 0.5rem;">Create Account</h2>
+                            <p style="color: var(--gray-text);">Join the exclusive Apex Auto family</p>
+                        </div>
+                        <form class="auth-form" id="signupForm" novalidate>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label style="color: var(--light-text); margin-bottom: 0.6rem; font-size: 0.9rem; font-weight: 500;"><i class="fas fa-user me-2" style="color: var(--primary-color);"></i>First Name</label>
+                                    <input type="text" class="form-control" id="firstName" placeholder="First name" required minlength="2" style="background: var(--dark-bg); border: 1px solid var(--border-color); color: var(--light-text); padding: 0.85rem 1rem; border-radius: 4px;">
+                                    <div class="invalid-feedback" style="color: #ff6b6b;">Enter at least 2 characters.</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label style="color: var(--light-text); margin-bottom: 0.6rem; font-size: 0.9rem; font-weight: 500;"><i class="fas fa-user me-2" style="color: var(--primary-color);"></i>Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" placeholder="Last name" required minlength="2" style="background: var(--dark-bg); border: 1px solid var(--border-color); color: var(--light-text); padding: 0.85rem 1rem; border-radius: 4px;">
+                                    <div class="invalid-feedback" style="color: #ff6b6b;">Enter at least 2 characters.</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label style="color: var(--light-text); margin-bottom: 0.6rem; font-size: 0.9rem; font-weight: 500;"><i class="fas fa-envelope me-2" style="color: var(--primary-color);"></i>Email Address</label>
+                                <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email" required style="background: var(--dark-bg); border: 1px solid var(--border-color); color: var(--light-text); padding: 0.85rem 1rem; border-radius: 4px;">
+                                <div class="invalid-feedback" style="color: #ff6b6b;">Please enter a valid email address.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label style="color: var(--light-text); margin-bottom: 0.6rem; font-size: 0.9rem; font-weight: 500;"><i class="fas fa-phone me-2" style="color: var(--primary-color);"></i>Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="Enter 10 digit phone number" required pattern="[0-9]{10}" style="background: var(--dark-bg); border: 1px solid var(--border-color); color: var(--light-text); padding: 0.85rem 1rem; border-radius: 4px;">
+                                <div class="invalid-feedback" style="color: #ff6b6b;">Enter a valid 10-digit phone number.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label style="color: var(--light-text); margin-bottom: 0.6rem; font-size: 0.9rem; font-weight: 500;"><i class="fas fa-lock me-2" style="color: var(--primary-color);"></i>Password</label>
+                                <div style="position: relative;">
+                                    <input type="password" class="form-control" id="signupPassword" placeholder="Create a password (min 6 chars)" required minlength="6" style="background: var(--dark-bg); border: 1px solid var(--border-color); color: var(--light-text); padding: 0.85rem 3rem 0.85rem 1rem; border-radius: 4px;">
+                                    <button type="button" onclick="togglePassword('signupPassword', this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: var(--gray-text); cursor: pointer;"><i class="fas fa-eye"></i></button>
+                                </div>
+                                <div class="invalid-feedback" style="color: #ff6b6b;">Password must be at least 6 characters.</div>
+                            </div>
+                            <div class="mb-4">
+                                <label style="color: var(--light-text); margin-bottom: 0.6rem; font-size: 0.9rem; font-weight: 500;"><i class="fas fa-lock me-2" style="color: var(--primary-color);"></i>Confirm Password</label>
+                                <div style="position: relative;">
+                                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required style="background: var(--dark-bg); border: 1px solid var(--border-color); color: var(--light-text); padding: 0.85rem 3rem 0.85rem 1rem; border-radius: 4px;">
+                                    <button type="button" onclick="togglePassword('confirmPassword', this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: var(--gray-text); cursor: pointer;"><i class="fas fa-eye"></i></button>
+                                </div>
+                                <div class="invalid-feedback" id="confirmFeedback" style="color: #ff6b6b;">Passwords do not match.</div>
+                            </div>
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="terms" required style="background-color: var(--dark-bg); border-color: var(--border-color);">
+                                <label class="form-check-label" for="terms" style="color: var(--gray-text); font-size: 0.9rem;">
+                                    I agree to the <a href="error.html" style="color: var(--primary-color); text-decoration: none;">Terms & Conditions</a> and <a href="error.html" style="color: var(--primary-color); text-decoration: none;">Privacy Policy</a>
+                                </label>
+                                <div class="invalid-feedback" style="color: #ff6b6b;">You must accept the terms.</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 mb-3" style="padding: 0.9rem; font-weight: 600; border-radius: 4px;"><i class="fas fa-user-plus me-2"></i>Create Account</button>
+                            <div class="text-center">
+                                <p style="color: var(--gray-text); margin-bottom: 0;">Already have an account? <a href="signin.html" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Sign In</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="footer-brand"><img src="images/image.png" alt="Apex Auto" style="height: 45px;"></div>
+                    <p class="footer-description">The world's premier destination for luxury and performance automobiles. Curating excellence since 1999.</p>
+                    <div class="footer-social">
+                        <a href="error.html"><i class="fab fa-facebook-f"></i></a>
+                        <a href="error.html"><i class="fab fa-instagram"></i></a>
+                        <a href="error.html"><i class="fab fa-twitter"></i></a>
+                        <a href="error.html"><i class="fab fa-youtube"></i></a>
+                        <a href="error.html"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="inventory.html">Inventory</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h4 class="footer-heading">Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="signin.html">Sign In</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <p class="footer-newsletter-text"><i class="fas fa-map-marker-alt" style="color: var(--primary-color); margin-right: 8px;"></i>123 Luxury Drive<br><span style="margin-left: 20px;">Beverly Hills, CA 90210</span></p>
+                    <p class="footer-newsletter-text"><i class="fas fa-phone" style="color: var(--primary-color); margin-right: 8px;"></i>+1 (310) 555-0123</p>
+                    <p class="footer-newsletter-text"><i class="fas fa-envelope" style="color: var(--primary-color); margin-right: 8px;"></i>info@apexauto.com</p>
+                    <p class="footer-newsletter-text"><i class="fas fa-clock" style="color: var(--primary-color); margin-right: 8px;"></i>Mon-Sat: 9:00 AM - 7:00 PM</p>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="footer-copyright">&copy; 2026 Apex Auto. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="footer-copyright">Privacy Policy | Terms of Service</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function togglePassword(inputId, btn) {
+            const input = document.getElementById(inputId);
+            const icon = btn.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+        
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const firstName = document.getElementById('firstName');
+            const lastName = document.getElementById('lastName');
+            const email = document.getElementById('signupEmail');
+            const phone = document.getElementById('phone');
+            const password = document.getElementById('signupPassword');
+            const confirmPassword = document.getElementById('confirmPassword');
+            const terms = document.getElementById('terms');
+            const confirmFeedback = document.getElementById('confirmFeedback');
+            
+            [firstName, lastName, email, phone, password, confirmPassword, terms].forEach(el => el.classList.remove('is-invalid'));
+            confirmFeedback.style.display = 'none';
+            let valid = true;
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phoneRegex = /^[0-9]{10}$/;
+            
+            if (firstName.value.trim().length < 2) { firstName.classList.add('is-invalid'); valid = false; }
+            if (lastName.value.trim().length < 2) { lastName.classList.add('is-invalid'); valid = false; }
+            if (!emailRegex.test(email.value.trim())) { email.classList.add('is-invalid'); valid = false; }
+            if (!phoneRegex.test(phone.value.trim())) { phone.classList.add('is-invalid'); valid = false; }
+            if (password.value.length < 6) { password.classList.add('is-invalid'); valid = false; }
+            if (password.value !== confirmPassword.value) { 
+                confirmPassword.classList.add('is-invalid'); 
+                confirmFeedback.style.display = 'block';
+                valid = false; 
+            }
+            if (!terms.checked) { terms.classList.add('is-invalid'); valid = false; }
+            
+            if (valid) {
+                window.location.href = 'signin.html';
+            }
+        });
+    </script>
+</body>
+</html>
